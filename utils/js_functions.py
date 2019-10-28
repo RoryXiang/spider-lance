@@ -1,9 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # @Date    : 2019-09-20 10:11:33
-# @Author  : RoryXiang (xiangshangping@lvwan.com)
+# @Author  : RoryXiang (pingping19901121@gmail.com)
 # @Link    : ${link}
 # @Version : $Id$
+
+"""
+裁判外文书参数加密函数
+"""
 
 import execjs
 

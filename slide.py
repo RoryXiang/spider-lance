@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # @Date    : 2019-09-18 15:57:20
-# @Author  : RoryXiang (xiangshangping@lvwan.com)
+# @Author  : RoryXiang (pingping19901121@gmail.com)
 # @Link    : ${link}
 # @Version : $Id$
 
