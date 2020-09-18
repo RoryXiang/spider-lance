@@ -5,3 +5,6 @@ __pycache__/
 .json
 .xlsx
 .lock
+
+# 忽略node插件
+node_modules/
