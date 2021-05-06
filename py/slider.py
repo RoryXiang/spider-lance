@@ -9,7 +9,6 @@ def sigmod_similary_tracks_finaldis(distance: int):
     Arguments:
             distance {[[float, float]]} -- [[滑动时间间隔，滑块到开始滑动的距离]]
     """
-    distance += 10
     tracks = []
     x_time = 0.2
     delta_time = random.randint(6, 45) / 100
@@ -26,10 +25,6 @@ def sigmod_similary_tracks_finaldis(distance: int):
         x_time += delta_time
         final_distance = sigmod(x_time)
     tracks.append([delta_time, final_distance])
-    tracks.extend([
-        [0.05, distance - 3], [0.05, distance - 5],
-        [0.05, distance - 8], [0.05, distance - 9], [0.05, distance - 10]
-    ])
     return tracks
 
 
@@ -39,7 +34,6 @@ def sigmod_similary_tracks_slidedis(distance: int):
     Arguments:
             distance {[[float, float]]} -- [[滑动时间间隔，滑动时间间隔内滑动的距离]]
     """
-    distance += 10
     tracks = []
     x_time = 0.2
     delta_time = random.randint(6, 45) / 100
@@ -56,12 +50,8 @@ def sigmod_similary_tracks_slidedis(distance: int):
         delta_time = random.randint(6, 45) / 100
         x_time += delta_time
         final_distance = sigmod(x_time)
-    slide_gap = final_distance - tracks[-1][-1]
+    slide_gap = final_distance - sigmod(x_time)
     tracks.append([delta_time, slide_gap])
-    tracks.extend([
-        [0.05, -3], [0.05, -2],
-        [0.05, -3], [0.05, -1], [0.05, -1]
-    ])
     return tracks
 
 
@@ -86,6 +76,8 @@ class Slider(object):
                 xoffset=track[-1], yoffset=0
             ).perform()
             time.sleep(track[0])
+        ActionChains(self.browser).click(self.gap).perform()
+        time.sleep(1)
 
     def slide(self):
         tracks = sigmod_similary_tracks_slidedis(self.distance)
